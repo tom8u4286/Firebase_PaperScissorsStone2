@@ -1,0 +1,6 @@
+framework module Pods_Firebase_PaperScissorsStone2 {
+  umbrella header "Pods-Firebase_PaperScissorsStone2-umbrella.h"
+
+  export *
+  module * { export * }
+}

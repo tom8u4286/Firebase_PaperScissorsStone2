@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C24C871D523E63C107A91B63 /* Pods_Firebase_PaperScissorsStone2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10004A04A686EFA7F1832245 /* Pods_Firebase_PaperScissorsStone2.framework */; };
 		DDB53B282627D85200DD213A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB53B272627D85200DD213A /* AppDelegate.swift */; };
 		DDB53B2A2627D85200DD213A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB53B292627D85200DD213A /* SceneDelegate.swift */; };
 		DDB53B2C2627D85200DD213A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB53B2B2627D85200DD213A /* ViewController.swift */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10004A04A686EFA7F1832245 /* Pods_Firebase_PaperScissorsStone2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Firebase_PaperScissorsStone2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7320BFF26894D7BC6E5C3A2 /* Pods-Firebase_PaperScissorsStone2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Firebase_PaperScissorsStone2.release.xcconfig"; path = "Target Support Files/Pods-Firebase_PaperScissorsStone2/Pods-Firebase_PaperScissorsStone2.release.xcconfig"; sourceTree = "<group>"; };
+		BD568FF41215F1AFDCD8939D /* Pods-Firebase_PaperScissorsStone2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Firebase_PaperScissorsStone2.debug.xcconfig"; path = "Target Support Files/Pods-Firebase_PaperScissorsStone2/Pods-Firebase_PaperScissorsStone2.debug.xcconfig"; sourceTree = "<group>"; };
 		DDB53B242627D85200DD213A /* Firebase_PaperScissorsStone2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Firebase_PaperScissorsStone2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDB53B272627D85200DD213A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDB53B292627D85200DD213A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C24C871D523E63C107A91B63 /* Pods_Firebase_PaperScissorsStone2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		59274852E53FA0123606EBDE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BD568FF41215F1AFDCD8939D /* Pods-Firebase_PaperScissorsStone2.debug.xcconfig */,
+				B7320BFF26894D7BC6E5C3A2 /* Pods-Firebase_PaperScissorsStone2.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		615277E7046B30500D117A1E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				10004A04A686EFA7F1832245 /* Pods_Firebase_PaperScissorsStone2.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DDB53B1B2627D85200DD213A = {
 			isa = PBXGroup;
 			children = (
 				DDB53B262627D85200DD213A /* Firebase_PaperScissorsStone2 */,
 				DDB53B252627D85200DD213A /* Products */,
+				59274852E53FA0123606EBDE /* Pods */,
+				615277E7046B30500D117A1E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DDB53B382627D85400DD213A /* Build configuration list for PBXNativeTarget "Firebase_PaperScissorsStone2" */;
 			buildPhases = (
+				285FB89B07E0AA2F8F750424 /* [CP] Check Pods Manifest.lock */,
 				DDB53B202627D85200DD213A /* Sources */,
 				DDB53B212627D85200DD213A /* Frameworks */,
 				DDB53B222627D85200DD213A /* Resources */,
+				1E080FFF22825BC67FE71C41 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1E080FFF22825BC67FE71C41 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Firebase_PaperScissorsStone2/Pods-Firebase_PaperScissorsStone2-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Firebase_PaperScissorsStone2/Pods-Firebase_PaperScissorsStone2-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Firebase_PaperScissorsStone2/Pods-Firebase_PaperScissorsStone2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		285FB89B07E0AA2F8F750424 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Firebase_PaperScissorsStone2-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DDB53B202627D85200DD213A /* Sources */ = {
@@ -283,6 +352,7 @@
 		};
 		DDB53B392627D85400DD213A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD568FF41215F1AFDCD8939D /* Pods-Firebase_PaperScissorsStone2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +372,7 @@
 		};
 		DDB53B3A2627D85400DD213A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7320BFF26894D7BC6E5C3A2 /* Pods-Firebase_PaperScissorsStone2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

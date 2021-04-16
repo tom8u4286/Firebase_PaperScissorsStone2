@@ -8,8 +8,17 @@
 import UIKit
 
 class PlayerViewController: UIViewController {
+    
+    @IBOutlet weak var buttonAlice: UIButton!
+    @IBOutlet weak var buttonBob: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        buttonAlice.layer.cornerRadius = 10
+        buttonBob.layer.cornerRadius = 10
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

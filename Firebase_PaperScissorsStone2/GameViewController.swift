@@ -28,6 +28,7 @@ class GameViewController: UIViewController {
                 statusLabel.text = "對手已連線，請出拳"
                 opponentGestureLabel.text = "🤝"
                 myGestureLabel.text = nil
+                opponentNameLabel.text = "🟢" + opponentName
                 showGestureButtons()
             }else{
                 statusLabel.text = "等待對手連線中..."
@@ -38,7 +39,10 @@ class GameViewController: UIViewController {
             }
         }
     }
-    
+    @IBOutlet weak var opponentEmojiLabel: UILabel!
+    @IBOutlet weak var playerEmojiLabel: UILabel!
+    @IBOutlet weak var opponentNameLabel: UILabel!
+    @IBOutlet weak var playerNameLabel: UILabel!
     
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var myGestureLabel: UILabel!
@@ -67,19 +71,7 @@ class GameViewController: UIViewController {
         outgoGestureHandler("✋")
         hideGestureButtons()
     }
-    
-    func hideGestureButtons(){
-        paperButton.isHidden = true
-        stoneButton.isHidden = true
-        scissorsButton.isHidden = true
-    }
-    func showGestureButtons(){
-        paperButton.isHidden = false
-        stoneButton.isHidden = false
-        scissorsButton.isHidden = false
-    }
-    
-    
+
     @IBAction func newGameButton(_ sender: UIButton) {
         print("newGameButton tapped.")
         
@@ -102,7 +94,7 @@ class GameViewController: UIViewController {
         print("========= Player entered the room. =========")
         print("player: \(playerName), opponent: \(opponentName)")
         playerIsInRoom = true
-        newGameButton.isHidden = true
+        UISetup()
         
         myDocRef = Firestore.firestore().document("game1/\(playerName)")
         opponentDocRef = Firestore.firestore().document("game1/\(opponentName)")
@@ -139,6 +131,8 @@ class GameViewController: UIViewController {
             }
         }
     }
+    
+    
     
     func sendData(_ data: [String: Any]){
         if playerIsInRoom{
@@ -213,7 +207,7 @@ class GameViewController: UIViewController {
             opponentGestureLabel.text = nil
             opponentGestureBuffer = nil
             
-            statusLabel.text = "對手邀請新遊戲，請出拳"
+            statusLabel.text = "對手邀請你新遊戲\n請出拳"
             
             newGameButton.isHidden = true
             showGestureButtons()
@@ -224,6 +218,8 @@ class GameViewController: UIViewController {
             myGestureLabel.text = "🥱"
             opponentGestureBuffer = nil
             opponentGestureLabel.text = "❓"
+            opponentNameLabel.text = "🔴" + opponentName
+            
             hideGestureButtons()
         }
     }
@@ -273,6 +269,28 @@ class GameViewController: UIViewController {
         
     }
     
+    
+    func hideGestureButtons(){
+        paperButton.isHidden = true
+        stoneButton.isHidden = true
+        scissorsButton.isHidden = true
+    }
+    func showGestureButtons(){
+        paperButton.isHidden = false
+        stoneButton.isHidden = false
+        scissorsButton.isHidden = false
+    }
+    
+    func UISetup(){
+        playerEmojiLabel.text = (playerName == "Bob") ? "💁🏻‍♂️" : "💁🏻‍♀️"
+        opponentEmojiLabel.text = (opponentName == "Bob") ? "🙋🏻‍♂️" : "🙋🏻‍♀️"
+        playerNameLabel.text = "🟢" + playerName
+        opponentNameLabel.text = "🔴" + opponentName
+        scissorsButton.layer.cornerRadius = 10
+        stoneButton.layer.cornerRadius = 10
+        paperButton.layer.cornerRadius = 10
+        newGameButton.layer.cornerRadius = 10
+    }
     
     @objc func backViewBtnFnc(){
         self.navigationController?.popViewController(animated: true)

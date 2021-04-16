@@ -29,16 +29,39 @@ class GameViewController: UIViewController {
                 opponentGestureLabel.text = "🤝"
                 myGestureLabel.text = nil
                 opponentNameLabel.text = "🟢" + opponentName
+                
+                popAnimation(opponentEmojiLabel)
+                
                 showGestureButtons()
             }else{
                 statusLabel.text = "等待對手連線中..."
                 gotHello = false
                 gotACK = false
+                
+                leaveAnimation(opponentEmojiLabel)
                 hideGestureButtons()
                 newGameButton.isHidden = true
             }
         }
     }
+    
+    func popAnimation(_ uiview:UIView){
+        uiview.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
+        uiview.alpha = 1
+        UIView.animate(withDuration: 0.5, animations: {
+            uiview.transform = CGAffineTransform(scaleX: 1, y: 1)
+        })
+    }
+    
+    func leaveAnimation(_ uiview:UIView){
+        UIView.animate(withDuration: 0.3, animations: {
+            uiview.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
+        }){(_) in
+            uiview.alpha = 0
+        }
+        
+    }
+    
     @IBOutlet weak var opponentEmojiLabel: UILabel!
     @IBOutlet weak var playerEmojiLabel: UILabel!
     @IBOutlet weak var opponentNameLabel: UILabel!
@@ -84,6 +107,7 @@ class GameViewController: UIViewController {
         
         statusLabel.text = "開始新遊戲，請出拳"
         
+        resetEmojiLabel()
         newGameButton.isHidden = true
         showGestureButtons()
     }
@@ -104,7 +128,6 @@ class GameViewController: UIViewController {
         sendData(data)
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "離開遊戲", style: .plain, target: self,action: #selector(backViewBtnFnc))
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -132,8 +155,6 @@ class GameViewController: UIViewController {
         }
     }
     
-    
-    
     func sendData(_ data: [String: Any]){
         if playerIsInRoom{
             myDocRef.setData(data){ error in
@@ -143,7 +164,6 @@ class GameViewController: UIViewController {
             }
         }
     }
-    
     
     func handshake(_ message: String){
         if message == "Hello"{
@@ -209,6 +229,7 @@ class GameViewController: UIViewController {
             
             statusLabel.text = "對手邀請你新遊戲\n請出拳"
             
+            resetEmojiLabel()
             newGameButton.isHidden = true
             showGestureButtons()
         }
@@ -248,27 +269,39 @@ class GameViewController: UIViewController {
     func checkWinningStatus(){
         if myGestureLabel.text == opponentGestureLabel.text{
             print("checkWinningStatus(): Tie")
-            statusLabel.text = "平手！"
+            tie()
         }else{
             if myGestureLabel.text == "✋"{
                 print("checkWinningStatus(): myGesture✋")
-                if opponentGestureLabel.text == "✌️" {statusLabel.text = "你輸了！"}
-                if opponentGestureLabel.text == "👊" {statusLabel.text = "你贏了！"}
+                opponentGestureLabel.text == "✌️" ? lose() : win()
             }
             if myGestureLabel.text == "✌️"{
                 print("checkWinningStatus(): myGesture✌️")
-                if opponentGestureLabel.text == "👊" { statusLabel.text = "你輸了！"}
-                if opponentGestureLabel.text == "✋" { statusLabel.text = "你贏了！"}
+                opponentGestureLabel.text == "👊" ? lose() : win()
             }
             if myGestureLabel.text == "👊"{
                 print("checkWinningStatus(): myGesture👊")
-                if opponentGestureLabel.text == "✋" { statusLabel.text = "你輸了！"}
-                if opponentGestureLabel.text == "✌️" { statusLabel.text = "你贏了！"}
+                opponentGestureLabel.text == "✋" ? lose() : win()
             }
         }
         
     }
+    func tie(){
+        statusLabel.text = "平手！"
+        playerEmojiLabel.text = (playerName == "Bob") ? "🤦🏻‍♂️" : "🤦🏻‍♀️"
+        opponentEmojiLabel.text = (opponentName == "Bob") ? "🤦🏻‍♂️" : "🤦🏻‍♀️"  
+    }
     
+    func lose(){
+        statusLabel.text = "你輸了！"
+        playerEmojiLabel.text = (playerName == "Bob") ? "🤦🏻‍♂️" : "🤦🏻‍♀️"
+        opponentEmojiLabel.text = (opponentName == "Bob") ? "🤷🏻‍♂️" : "🤷🏻‍♀️"
+    }
+    func win(){
+        statusLabel.text = "你贏了！"
+        playerEmojiLabel.text = (playerName == "Bob") ? "🤷🏻‍♂️" : "🤷🏻‍♀️"
+        opponentEmojiLabel.text = (opponentName == "Bob") ? "🤦🏻‍♂️" : "🤦🏻‍♀️"
+    }
     
     func hideGestureButtons(){
         paperButton.isHidden = true
@@ -282,14 +315,21 @@ class GameViewController: UIViewController {
     }
     
     func UISetup(){
-        playerEmojiLabel.text = (playerName == "Bob") ? "💁🏻‍♂️" : "💁🏻‍♀️"
-        opponentEmojiLabel.text = (opponentName == "Bob") ? "🙋🏻‍♂️" : "🙋🏻‍♀️"
+        resetEmojiLabel()
         playerNameLabel.text = "🟢" + playerName
         opponentNameLabel.text = "🔴" + opponentName
+        
+        popAnimation(playerEmojiLabel)
+        
         scissorsButton.layer.cornerRadius = 10
         stoneButton.layer.cornerRadius = 10
         paperButton.layer.cornerRadius = 10
         newGameButton.layer.cornerRadius = 10
+    }
+    
+    func resetEmojiLabel(){
+        playerEmojiLabel.text = (playerName == "Bob") ? "💁🏻‍♂️" : "💁🏻‍♀️"
+        opponentEmojiLabel.text = (opponentName == "Bob") ? "🙋🏻‍♂️" : "🙋🏻‍♀️"
     }
     
     @objc func backViewBtnFnc(){

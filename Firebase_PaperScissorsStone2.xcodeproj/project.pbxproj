@@ -3,17 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		C24C871D523E63C107A91B63 /* Pods_Firebase_PaperScissorsStone2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10004A04A686EFA7F1832245 /* Pods_Firebase_PaperScissorsStone2.framework */; };
 		DDB53B282627D85200DD213A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB53B272627D85200DD213A /* AppDelegate.swift */; };
 		DDB53B2A2627D85200DD213A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB53B292627D85200DD213A /* SceneDelegate.swift */; };
-		DDB53B2C2627D85200DD213A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB53B2B2627D85200DD213A /* ViewController.swift */; };
-		DDB53B2F2627D85200DD213A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDB53B2D2627D85200DD213A /* Main.storyboard */; };
+		DDB53B2C2627D85200DD213A /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB53B2B2627D85200DD213A /* PlayerViewController.swift */; };
 		DDB53B312627D85400DD213A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDB53B302627D85400DD213A /* Assets.xcassets */; };
 		DDB53B342627D85400DD213A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDB53B322627D85400DD213A /* LaunchScreen.storyboard */; };
+		DDB53B6F2628099000DD213A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB53B6E2628099000DD213A /* GameViewController.swift */; };
+		DDB53B912628257000DD213A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDB53B902628257000DD213A /* GoogleService-Info.plist */; };
+		DDB53BAF262889AA00DD213A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDB53BAE262889AA00DD213A /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,11 +25,13 @@
 		DDB53B242627D85200DD213A /* Firebase_PaperScissorsStone2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Firebase_PaperScissorsStone2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDB53B272627D85200DD213A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDB53B292627D85200DD213A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DDB53B2B2627D85200DD213A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DDB53B2E2627D85200DD213A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DDB53B2B2627D85200DD213A /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		DDB53B302627D85400DD213A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDB53B332627D85400DD213A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDB53B352627D85400DD213A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDB53B6E2628099000DD213A /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		DDB53B902628257000DD213A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DDB53BAE262889AA00DD213A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../Desktop/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +52,6 @@
 				BD568FF41215F1AFDCD8939D /* Pods-Firebase_PaperScissorsStone2.debug.xcconfig */,
 				B7320BFF26894D7BC6E5C3A2 /* Pods-Firebase_PaperScissorsStone2.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,11 +86,13 @@
 			children = (
 				DDB53B272627D85200DD213A /* AppDelegate.swift */,
 				DDB53B292627D85200DD213A /* SceneDelegate.swift */,
-				DDB53B2B2627D85200DD213A /* ViewController.swift */,
-				DDB53B2D2627D85200DD213A /* Main.storyboard */,
+				DDB53B2B2627D85200DD213A /* PlayerViewController.swift */,
+				DDB53B6E2628099000DD213A /* GameViewController.swift */,
 				DDB53B302627D85400DD213A /* Assets.xcassets */,
 				DDB53B322627D85400DD213A /* LaunchScreen.storyboard */,
+				DDB53BAE262889AA00DD213A /* Main.storyboard */,
 				DDB53B352627D85400DD213A /* Info.plist */,
+				DDB53B902628257000DD213A /* GoogleService-Info.plist */,
 			);
 			path = Firebase_PaperScissorsStone2;
 			sourceTree = "<group>";
@@ -152,8 +157,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDB53B342627D85400DD213A /* LaunchScreen.storyboard in Resources */,
+				DDB53B912628257000DD213A /* GoogleService-Info.plist in Resources */,
 				DDB53B312627D85400DD213A /* Assets.xcassets in Resources */,
-				DDB53B2F2627D85200DD213A /* Main.storyboard in Resources */,
+				DDB53BAF262889AA00DD213A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,7 +212,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDB53B2C2627D85200DD213A /* ViewController.swift in Sources */,
+				DDB53B6F2628099000DD213A /* GameViewController.swift in Sources */,
+				DDB53B2C2627D85200DD213A /* PlayerViewController.swift in Sources */,
 				DDB53B282627D85200DD213A /* AppDelegate.swift in Sources */,
 				DDB53B2A2627D85200DD213A /* SceneDelegate.swift in Sources */,
 			);
@@ -215,14 +222,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DDB53B2D2627D85200DD213A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DDB53B2E2627D85200DD213A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DDB53B322627D85400DD213A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

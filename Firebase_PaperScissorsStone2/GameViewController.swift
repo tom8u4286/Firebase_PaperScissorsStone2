@@ -205,10 +205,15 @@ class GameViewController: UIViewController {
     
     func otherMessageHandler(_ message: String){
         if message == "new"{
+            let data = ["message": "accept"]
+            sendData(data)
+            
             myGestureLabel.text = nil
             opponentGestureLabel.text = nil
             opponentGestureBuffer = nil
+            
             statusLabel.text = "對手邀請新遊戲，請出拳"
+            
             newGameButton.isHidden = true
             showGestureButtons()
         }

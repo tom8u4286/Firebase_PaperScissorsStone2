@@ -205,6 +205,7 @@ class GameViewController: UIViewController {
     
     func otherMessageHandler(_ message: String){
         if message == "new"{
+            
             let data = ["message": "accept"]
             sendData(data)
             
